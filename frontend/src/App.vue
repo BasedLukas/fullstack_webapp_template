@@ -1,15 +1,27 @@
 <script setup>
 import HelloWorld from '@/components/HelloWorld.vue'
+import SubmitMessage from '@/components/SubmitMessage.vue'
+import ViewMessage from '@/components/ViewMessage.vue'
 </script>
 
 <template>
-  <header>
+  <body>
+    <div class="box">
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg=" 'my message'  " />
     </div>
-  </header>
+
+    <div class="box">
+    <HelloWorld />
+    </div>
+    
+    <div class="box">
+    <SubmitMessage />
+    </div>
+    
+    <div class="box">
+    <ViewMessage />
+    </div>
+  </body>
 
 </template>
 
@@ -34,7 +46,7 @@ header {
     margin: 0 2rem 0 0;
   }
 
-  header .wrapper {
+  header .box {
     display: flex;
     place-items: flex-start;
     flex-wrap: wrap;

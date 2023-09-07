@@ -1,29 +1,4 @@
 <script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true
-  }
-})
-
-import { ref} from 'vue';
-import { fetchData } from '@/services/api';  // Adjust the import to match your project structure
-
-// Declare reactive variable to store fetched data
-const data = ref(null);
-// 
-
-const makeApiCall = async () => {
-  const response = await fetchData();
-  if (response) {
-    const responseData = await response;
-    data.value = responseData;
-  } else {
-    data.value = `Error: ${response.status}`;
-    console.error(`Error: ${response}`);
-  }
-};
-
 </script>
 
 
@@ -32,9 +7,6 @@ const makeApiCall = async () => {
     <h3>
       This is the HelloWorld.vue component
     </h3>
-    <h1 class="green">Here is a message passed in to the Hello World Component: {{ msg }}</h1>
-    <button @click="makeApiCall">Make API Call</button>
-    <pre v-if="data">{{ data }}</pre>
   </div>
 </template>
 
