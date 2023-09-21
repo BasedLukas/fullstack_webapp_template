@@ -29,4 +29,7 @@ coverage
 
 venv
 
-sql_app.db
+**/sql_app.db
+*.db
+**/__pycache__/
+**/.vscode/
