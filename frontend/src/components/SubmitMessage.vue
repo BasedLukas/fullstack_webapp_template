@@ -1,13 +1,16 @@
 <script setup>
 import { ref} from 'vue';
 import { postData } from '@/services/api';  
+import { useCounterStore } from '@/stores/counter';
 
 const responseData = ref(null);
+const counterStore = useCounterStore();
 
 const makeApiCall = async (message) => {
   try {
     const response = await postData({ message: message });
     if (response) {
+      counterStore.increment();
       responseData.value = response.message;
     }
   } catch (error) {
@@ -19,7 +22,7 @@ const makeApiCall = async (message) => {
 </script>
 
 <template>
-    <div>
+    <div class="bordered">
       <h1>This is the SubmitMessage.vue component</h1>
       <p>Write your message here:</p>
       <!-- Input Box -->
@@ -33,5 +36,7 @@ const makeApiCall = async (message) => {
   
 
 <style scoped>
-
+.bordered {
+  border: solid rgb(6, 112, 35);  /* 2px width, solid line, black color */
+}
 </style>

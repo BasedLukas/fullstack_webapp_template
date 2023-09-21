@@ -1,0 +1,5 @@
+.bordered {
+    border: 2px solid black;  /* 2px width, solid line, black color */
+    padding: 16px;  /* Inner spacing */
+    margin: 16px;  /* Outer spacing */
+  }

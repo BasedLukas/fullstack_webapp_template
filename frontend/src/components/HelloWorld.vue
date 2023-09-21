@@ -3,7 +3,7 @@
 
 
 <template>
-  <div class="greetings">
+  <div class="greetings bordered">
     <h3>
       This is the HelloWorld.vue component
     </h3>
