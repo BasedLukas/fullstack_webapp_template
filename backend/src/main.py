@@ -1,9 +1,12 @@
-from fastapi import FastAPI, Depends, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-
-from . import schemas, models, crud
-from .database import SessionLocal, engine
-
+from fastapi import FastAPI, Depends, HTTPException, status, Request, Response
+from fastapi.security import OAuth2AuthorizationCodeBearer
+import os
+from dotenv import load_dotenv
+from . import schemas, crud
+from .database.database import SessionLocal, engine
+from .database import models
+load_dotenv()
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
@@ -17,7 +20,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # Dependency
 def get_db():
@@ -41,3 +43,4 @@ async def get_(db: SessionLocal = Depends(get_db)):
 async def post_(message: schemas.MessageCreate, db: SessionLocal = Depends(get_db)):
     db_response = crud.create_message(db=db, message=message)
     return {"message": db_response}
+

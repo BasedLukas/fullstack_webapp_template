@@ -2,6 +2,7 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import SubmitMessage from '@/components/SubmitMessage.vue'
 import ViewMessage from '@/components/ViewMessage.vue'
+import Login from '@/components/Login.vue'
 </script>
 
 <template>
@@ -20,6 +21,10 @@ import ViewMessage from '@/components/ViewMessage.vue'
     
     <div class="box">
     <ViewMessage />
+    </div>
+
+    <div class="box">
+    <Login />
     </div>
   </body>
 

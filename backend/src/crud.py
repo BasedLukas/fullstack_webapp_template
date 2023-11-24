@@ -1,11 +1,10 @@
 from sqlalchemy.orm import Session
-
-from . import models, schemas
+from .database import models
+from . import schemas
 
 # most recent messasge
 def get_message(db: Session):
     return db.query(models.Message).order_by(models.Message.id.desc()).first()
-
 
 
 def create_message(db: Session, message: schemas.MessageCreate):
