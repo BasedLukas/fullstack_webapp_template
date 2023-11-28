@@ -5,6 +5,9 @@ import jwt
 
 from .config import get_settings
 
+
+
+
 class UnauthorizedException(HTTPException):
     def __init__(self, detail: str, **kwargs):
         """Returns HTTP 403"""
@@ -31,6 +34,7 @@ class VerifyToken:
                      security_scopes: SecurityScopes,
                      token: Optional[HTTPAuthorizationCredentials] = Depends(HTTPBearer())
                      ):
+        print('verify token: ', token)
         if token is None:
             raise UnauthenticatedException
 

@@ -11,8 +11,22 @@ class Settings(BaseSettings):
     auth0_callback_url: str
     auth0_client_secret: str
 
+    # frontend url
+    origins: str 
+
+    #database
+    username :str
+    password :str
+    host :str
+    port :str # Default PostgreSQL port
+    database :str  # The database name
+
+    # other
+    log_level: str 
+
     class Config:
         env_file = ".env"
+
 
 @lru_cache()
 def get_settings():

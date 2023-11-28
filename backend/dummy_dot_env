@@ -1,0 +1,20 @@
+auth0_domain=''
+auth0_api_audience=''
+auth0_issuer=''
+auth0_algorithms=''
+auth0_client_id=''
+auth0_callback_url=''
+auth0_client_secret=''
+
+# frontend url
+origins="http://localhost:5173"
+
+#database
+username = "test"
+password = "test"  
+host = "localhost"
+port = "5432"  # Default PostgreSQL port
+database = "vue-app-db"  # The database name
+
+# other
+log_level = "debug"

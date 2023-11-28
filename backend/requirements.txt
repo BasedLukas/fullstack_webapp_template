@@ -1,4 +1,9 @@
 fastapi==0.104.1
+httpx==0.25.2
 pydantic==2.5.2
+pydantic_settings==2.1.0
+PyJWT==2.8.0
 python-dotenv==1.0.0
-SQLAlchemy==1.4.46
+SQLAlchemy==2.0.23
+psycopg2-binary
+uvicorn

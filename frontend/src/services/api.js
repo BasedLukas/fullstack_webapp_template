@@ -34,3 +34,22 @@
       throw error;
     }
   }
+
+  export async function viewPrivate() {
+    try {
+      const response = await fetch('http://localhost:8000/private', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      // if (!response.ok) {
+      //   throw new Error('Network response was not ok ' + response.statusText);
+      // }
+      const responseData = await response.json();
+      return responseData;
+    } catch (error) {
+      console.error('Fetch error:', error);
+      throw error;
+    }
+  }

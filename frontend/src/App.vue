@@ -2,7 +2,7 @@
 import HelloWorld from '@/components/HelloWorld.vue'
 import SubmitMessage from '@/components/SubmitMessage.vue'
 import ViewMessage from '@/components/ViewMessage.vue'
-import Login from '@/components/Login.vue'
+import LoginDashboard from '@/components/LoginDashboard.vue'
 </script>
 
 <template>
@@ -24,7 +24,7 @@ import Login from '@/components/Login.vue'
     </div>
 
     <div class="box">
-    <Login />
+    <LoginDashboard />
     </div>
   </body>
 
