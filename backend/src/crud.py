@@ -5,11 +5,11 @@ import logging
 log = logging.getLogger(__name__)
 
 # most recent messasge
-def get_message(db: Session):
+async def get_message(db: Session):
     return db.query(models.Message).order_by(models.Message.id.desc()).first()
 
 
-def create_message(db: Session, message: schemas.MessageCreate):
+async def create_message(db: Session, message: schemas.MessageCreate):
     db_message = models.Message(message=message.message)
     db.add(db_message)
     try:

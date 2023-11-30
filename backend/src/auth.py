@@ -6,7 +6,7 @@ import httpx
 from urllib.parse import urlencode
 import logging
 
-from .utils import VerifyToken
+
 from .config import get_settings
 
 settings = get_settings()
@@ -22,7 +22,7 @@ async def login():
 
 
 async def logout():
-    return_to_url = "http://127.0.0.1:8000/"  # The URL where the user should be redirected after logout
+    return_to_url = settings.origins  # "http://127.0.0.1:8000/"  # The URL where the user should be redirected after logout
     return_to_encoded = urlencode({"returnTo": return_to_url})
     logout_url = f"https://{settings.auth0_domain}/v2/logout?client_id={settings.auth0_client_id}&{return_to_encoded}"
     return RedirectResponse(url=logout_url)

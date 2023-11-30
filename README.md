@@ -27,12 +27,12 @@ Run the backend.
 `npm run dev`  
 
 ## todo
-add caching
-add search feature
-accept payments
-fully async
-deployment scripts
-monitoring and stats
-optimise load times
-add tests
-airflow pipeline to populate db
+add caching  
+add search feature  
+accept payments  
+fully async  
+deployment scripts  
+monitoring and stats  
+optimise load times  
+add tests  
+airflow pipeline to populate db  

@@ -1,55 +1,42 @@
+export async function customFetch(url, method = 'GET', data = null) {
+  try {
+      const options = {
+          method,
+          headers: {
+              'Content-Type': 'application/json',
+          },
+      };
 
-  // get function
-  export async function fetchData() {
-    try {
-      const response = await fetch('http://localhost:8000');
-      if (!response.ok) {
-        throw new Error('Network response was not ok ' + response.statusText);
+      if (data) {
+          options.body = JSON.stringify(data);
       }
-      const data = await response.json();
-      return data.message;
-    } catch (error) {
-      console.error('Fetch error:', error);
-      throw error;
-    }
-  }
-  
-  // post function
-  export async function postData(data) {
-    try {
-      const response = await fetch('http://localhost:8000', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      if (!response.ok) {
-        throw new Error('Network response was not ok ' + response.statusText);
-      }
-      const responseData = await response.json();
-      return responseData;
-    } catch (error) {
-      console.error('Fetch error:', error);
-      throw error;
-    }
-  }
 
-  export async function viewPrivate() {
-    try {
-      const response = await fetch('http://localhost:8000/private', {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      // if (!response.ok) {
-      //   throw new Error('Network response was not ok ' + response.statusText);
-      // }
-      const responseData = await response.json();
-      return responseData;
-    } catch (error) {
+      const response = await fetch(`http://localhost:8000${url}`, options);
+
+      if (!response.ok) {
+          throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+
+      return response.json();
+  } catch (error) {
       console.error('Fetch error:', error);
       throw error;
-    }
   }
+}
+
+export function fetchData() {
+  return customFetch('/');
+}
+export function postData(data) {
+  return customFetch('/', 'POST', data);
+}
+export function viewPrivate() {
+  return customFetch('/private');
+}
+export function loginRedirect() {
+  return customFetch('/login');
+}
+export function logoutRedirect() {
+  return customFetch('/logout');
+}
+
