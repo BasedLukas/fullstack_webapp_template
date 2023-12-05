@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     origins: str 
 
     #database
-    username :str
+    username_db :str
     password :str
     host :str
     port :str # Default PostgreSQL port
@@ -28,6 +28,5 @@ class Settings(BaseSettings):
         env_file = ".env"
 
 
-@lru_cache()
 def get_settings():
     return Settings()

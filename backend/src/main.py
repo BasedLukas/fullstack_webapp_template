@@ -12,11 +12,13 @@ log = logging.getLogger(__name__)
 log.setLevel(settings.log_level)
 
 models.Base.metadata.create_all(bind=engine)
-
+origins = settings.origins
+origins = origins.split(',')
+print(origins)
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[settings.origins],
+    allow_origins=['*'],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

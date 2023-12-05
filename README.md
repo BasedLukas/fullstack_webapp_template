@@ -27,6 +27,7 @@ Run the backend.
 `npm run dev`  
 
 ## todo
+fix login
 add caching  
 add search feature  
 accept payments  

@@ -2,9 +2,11 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from ..config import get_settings
+import logging
 
+log = logging.getLogger(__name__)
 settings = get_settings()
-username = settings.username
+username = settings.username_db
 password = settings.password
 host = settings.host
 port = settings.port  # Default PostgreSQL port

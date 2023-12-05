@@ -1,5 +1,21 @@
 version: '3.8'
+
 services:
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - not_used=1234
+
   db:
     image: postgres
     environment:
